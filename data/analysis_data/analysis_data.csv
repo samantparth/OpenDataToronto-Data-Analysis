@@ -1,20 +1,588 @@
-width,length,flying_time
-70,111,1.83
-57,127,2.32
-59,92,2.05
-70,75,1.1
-62,112,2.32
-68,103.5,0.5
-58,108,1.7
-79,114,0.86
-56,186,3.42
-87,68,1.37
-50,118,2.68
-49,186,1.83
-61,116,1.32
-60,127,1
-56,184,2.79
-69,124,1.4
-60,95,1.12
-44,137,1.28
-63,125,1.35
+reported_year,race_bias,ethnicity_bias
+2018,Black,None
+2018,Black,None
+2018,Black,None
+2018,Black,None
+2018,East/SE Asian,Chinese
+2018,Black,None
+2018,Black,None
+2018,West Asian/Middle Eastern,Iranian
+2018,Black,None
+2018,Black,"Chinese, Arab"
+2018,Black,None
+2018,East/SE Asian,Korean
+2018,Black,None
+2018,Black,None
+2018,Black,None
+2018,East/SE Asian,Chinese
+2018,East/SE Asian,Chinese
+2018,Black,None
+2018,Other/Multiracial,None
+2018,West Asian/Middle Eastern,Iranian
+2018,South Asian,Indian
+2018,Black,None
+2018,South Asian,Indian
+2018,Black,None
+2018,West Asian/Middle Eastern,Iranian
+2018,Black,None
+2018,Black,None
+2018,West Asian/Middle Eastern,Arab
+2018,Black,None
+2018,Black,None
+2018,Black,None
+2018,Black,None
+2018,South Asian,Pakistani
+2018,West Asian/Middle Eastern,Israeli
+2018,Black,None
+2018,Black,None
+2018,Other/Multiracial,None
+2018,Black,Indian
+2018,East/SE Asian,Chinese
+2018,Black,None
+2018,White,None
+2019,Black,None
+2019,West Asian/Middle Eastern,Palestinian
+2019,Black,None
+2019,Black,None
+2019,Black,None
+2019,South Asian,Indian
+2019,Black,Palestinian
+2019,Black,None
+2019,East/SE Asian,None
+2019,Black,None
+2019,Black,Somali
+2019,Black,None
+2019,Black,None
+2019,Black,None
+2019,Black,None
+2019,East/SE Asian,Chinese
+2019,South Asian,Sri Lankan
+2019,West Asian/Middle Eastern,Israeli
+2019,Black,None
+2019,White,None
+2019,South Asian,Indian
+2019,White,None
+2019,West Asian/Middle Eastern,Israeli
+2019,Other/Multiracial,None
+2019,Black,None
+2019,Other/Multiracial,None
+2019,White,None
+2019,Other/Multiracial,None
+2019,Black,None
+2019,Black,None
+2019,Black,None
+2019,Other/Multiracial,Other Ethnicity not mentioned
+2019,Black,None
+2019,Black,None
+2019,West Asian/Middle Eastern,Israeli
+2019,West Asian/Middle Eastern,Israeli
+2019,East/SE Asian,None
+2019,Other/Multiracial,Other Ethnicity not mentioned
+2019,East/SE Asian,None
+2019,Black,None
+2019,Black,None
+2019,Other/Multiracial,Other Ethnicity not mentioned
+2019,West Asian/Middle Eastern,Iranian
+2019,Black,None
+2020,East/SE Asian,Chinese
+2020,Black,None
+2020,Black,None
+2020,Black,None
+2020,White,None
+2020,East/SE Asian,Chinese
+2020,Other/Multiracial,Other Ethnicity not mentioned
+2020,Black,None
+2020,East/SE Asian,Chinese
+2020,East/SE Asian,Filipino
+2020,East/SE Asian,None
+2020,West Asian/Middle Eastern,Israeli
+2020,South Asian,Indian
+2020,Other/Multiracial,None
+2020,Black,None
+2020,South Asian,Indian
+2020,South Asian,Indian
+2020,Black,None
+2020,Black,None
+2020,Black,None
+2020,East/SE Asian,None
+2020,Black,None
+2020,Black,None
+2020,East/SE Asian,Chinese
+2020,East/SE Asian,Chinese
+2020,Black,None
+2020,Black,None
+2020,Black,None
+2020,Black,None
+2020,Black,None
+2020,Black,None
+2020,Black,None
+2020,Black,None
+2020,East/SE Asian,Chinese
+2020,Black,None
+2020,South Asian,Indian
+2020,Black,None
+2020,Black,None
+2020,Black,None
+2020,East/SE Asian,Chinese
+2020,Black,None
+2020,Black,None
+2020,Black,None
+2020,White,None
+2020,South Asian,Indian
+2020,White,None
+2020,East/SE Asian,Chinese
+2020,Black,None
+2020,East/SE Asian,Chinese
+2020,Black,None
+2020,Black,None
+2020,East/SE Asian,None
+2020,South Asian,Indian
+2020,Black,None
+2020,Black,None
+2020,White,None
+2020,Other/Multiracial,None
+2020,South Asian,None
+2020,East/SE Asian,Chinese
+2020,Black,None
+2020,Other/Multiracial,Other Ethnicity not mentioned
+2020,West Asian/Middle Eastern,Israeli
+2020,Black,None
+2020,Black,None
+2020,Black,None
+2020,South Asian,Indian
+2020,Black,None
+2020,South Asian,Indian
+2020,South Asian,Indian
+2020,White,None
+2020,East/SE Asian,Chinese
+2020,South Asian,None
+2020,West Asian/Middle Eastern,Israeli
+2020,Black,Chinese
+2020,South Asian,None
+2020,South Asian,Indian
+2020,East/SE Asian,Filipino
+2020,Black,None
+2020,East/SE Asian,Chinese
+2020,Black,None
+2020,Black,None
+2020,Other/Multiracial,Other Ethnicity not mentioned
+2020,Black,None
+2020,Other/Multiracial,Other Ethnicity not mentioned
+2020,Black,None
+2020,Black,None
+2020,Black,None
+2020,West Asian/Middle Eastern,Arab
+2020,Black,None
+2020,Black,None
+2020,Black,None
+2020,Black,None
+2020,Black,None
+2020,Black,None
+2020,East/SE Asian,Chinese
+2020,Black,None
+2020,White,None
+2020,Black,None
+2020,East/SE Asian,Chinese
+2020,Black,None
+2020,Other/Multiracial,African
+2020,Black,None
+2020,Black,None
+2020,Black,None
+2021,White,None
+2021,Black,None
+2021,White,None
+2021,East/SE Asian,None
+2021,Black,None
+2021,Other/Multiracial,None
+2021,South Asian,Indian
+2021,Black,None
+2021,Black,None
+2021,Black,None
+2021,Black,None
+2021,East/SE Asian,None
+2021,Black,None
+2021,Black,None
+2021,East/SE Asian,None
+2021,East/SE Asian,None
+2021,East/SE Asian,Chinese
+2021,East/SE Asian,None
+2021,Black,None
+2021,Black,None
+2021,Black,None
+2021,Black,None
+2021,Black,None
+2021,Black,None
+2021,East/SE Asian,None
+2021,West Asian/Middle Eastern,Iranian
+2021,Black,None
+2021,East/SE Asian,None
+2021,East/SE Asian,None
+2021,East/SE Asian,None
+2021,East/SE Asian,Chinese
+2021,East/SE Asian,None
+2021,East/SE Asian,None
+2021,South Asian,Indian
+2021,East/SE Asian,None
+2021,Other/Multiracial,None
+2021,Other/Multiracial,None
+2021,Other/Multiracial,African
+2021,East/SE Asian,None
+2021,East/SE Asian,None
+2021,Black,None
+2021,East/SE Asian,None
+2021,South Asian,None
+2021,East/SE Asian,Filipino
+2021,Black,None
+2021,East/SE Asian,None
+2021,Black,None
+2021,Black,None
+2021,East/SE Asian,None
+2021,East/SE Asian,None
+2021,East/SE Asian,None
+2021,East/SE Asian,None
+2021,Other/Multiracial,None
+2021,West Asian/Middle Eastern,Israeli
+2021,Black,None
+2021,Black,None
+2021,East/SE Asian,None
+2021,Black,None
+2021,Black,None
+2021,Black,None
+2021,West Asian/Middle Eastern,Israeli
+2021,Black,None
+2021,Black,None
+2021,East/SE Asian,None
+2021,Black,None
+2021,East/SE Asian,None
+2021,Other/Multiracial,None
+2021,East/SE Asian,None
+2021,West Asian/Middle Eastern,Arab
+2021,South Asian,None
+2021,Black,None
+2021,Black,None
+2021,Black,None
+2021,Black,None
+2021,Black,None
+2021,East/SE Asian,None
+2021,East/SE Asian,Chinese
+2021,Black,None
+2021,Black,None
+2021,East/SE Asian,Chinese
+2021,Black,None
+2021,South Asian,Sri Lankan
+2021,Black,None
+2021,Black,None
+2021,Black,None
+2021,East/SE Asian,Chinese
+2021,Black,None
+2021,East/SE Asian,None
+2021,South Asian,Indian
+2021,White,None
+2021,Black,None
+2021,Black,None
+2021,Black,None
+2021,East/SE Asian,None
+2022,East/SE Asian,None
+2021,East/SE Asian,Chinese
+2021,East/SE Asian,None
+2021,Black,None
+2021,West Asian/Middle Eastern,Afghan
+2021,White,None
+2021,East/SE Asian,Korean
+2021,South Asian,Indian
+2021,West Asian/Middle Eastern,Israeli
+2021,Black,None
+2021,West Asian/Middle Eastern,Arab
+2021,Black,None
+2021,Black,None
+2021,East/SE Asian,None
+2021,South Asian,None
+2021,East/SE Asian,None
+2021,Black,None
+2021,Black,None
+2021,West Asian/Middle Eastern,Iranian
+2021,Black,None
+2021,East/SE Asian,None
+2021,East/SE Asian,None
+2021,East/SE Asian,None
+2021,Black,None
+2021,East/SE Asian,None
+2021,East/SE Asian,Korean
+2021,Black,None
+2021,Black,None
+2021,Black,None
+2021,White,None
+2021,South Asian,Indian
+2021,East/SE Asian,Chinese
+2021,East/SE Asian,Chinese
+2021,South Asian,None
+2021,Black,None
+2021,East/SE Asian,Chinese
+2021,Black,None
+2021,Black,None
+2022,Black,None
+2021,South Asian,None
+2021,Black,None
+2021,Black,None
+2022,Black,None
+2021,Black,None
+2021,Black,None
+2021,Black,None
+2021,Black,None
+2022,Black,None
+2022,East/SE Asian,None
+2022,Black,None
+2022,Black,None
+2022,Black,None
+2022,Black,None
+2022,East/SE Asian,None
+2022,Black,None
+2022,West Asian/Middle Eastern,Arab
+2022,East/SE Asian,Filipino
+2022,Black,None
+2022,East/SE Asian,None
+2022,Black,None
+2022,Black,None
+2022,White,Ukrainian
+2022,East/SE Asian,None
+2022,Black,None
+2022,Black,None
+2022,Black,None
+2022,Black,None
+2022,Black,None
+2022,Black,None
+2022,Black,None
+2022,White,Russian
+2022,White,Ukrainian
+2022,White,Ukrainian
+2022,White,Ukrainian
+2022,White,Ukrainian
+2022,Black,None
+2022,White,Ukrainian
+2022,South Asian,None
+2022,Other/Multiracial,None
+2022,White,Russian
+2022,Black,None
+2022,White,Ukrainian
+2022,South Asian,None
+2022,Latin American,None
+2022,White,Ukrainian
+2022,East/SE Asian,None
+2022,Other/Multiracial,None
+2022,Black,None
+2022,Black,None
+2022,Black,None
+2022,White,Russian
+2022,East/SE Asian,Chinese
+2022,East/SE Asian,None
+2022,East/SE Asian,Korean
+2022,Black,None
+2022,South Asian,Indian
+2022,Black,None
+2022,South Asian,Indian
+2022,Black,None
+2022,Black,None
+2022,Black,None
+2022,Other/Multiracial,None
+2022,Black,None
+2022,Black,None
+2022,Black,None
+2022,Black,None
+2022,Black,None
+2022,East/SE Asian,None
+2022,Black,None
+2022,Black,None
+2022,Black,None
+2022,Black,None
+2022,East/SE Asian,None
+2022,Black,None
+2022,Black,None
+2022,Other/Multiracial,Other Ethnicity not mentioned
+2022,Black,None
+2022,East/SE Asian,None
+2022,Other/Multiracial,Other Ethnicity not mentioned
+2022,Black,None
+2022,East/SE Asian,None
+2022,Black,None
+2022,Black,None
+2022,South Asian,Indian
+2022,Other/Multiracial,None
+2022,Black,None
+2022,Black,None
+2022,Black,None
+2022,Black,None
+2022,Black,None
+2022,Black,None
+2022,Other/Multiracial,None
+2022,Other/Multiracial,Other Ethnicity not mentioned
+2022,Black,None
+2022,Black,None
+2022,White,Ukrainian
+2022,South Asian,None
+2022,Black,None
+2022,Other/Multiracial,None
+2022,Black,None
+2022,South Asian,None
+2022,Other/Multiracial,None
+2022,East/SE Asian,None
+2022,Other/Multiracial,African
+2022,Black,None
+2022,Black,None
+2022,South Asian,Indian
+2022,Other/Multiracial,None
+2022,East/SE Asian,Chinese
+2022,Latin American,Mexican
+2022,Black,None
+2022,Black,None
+2022,Other/Multiracial,"Indian, Filipino"
+2022,South Asian,None
+2022,Black,None
+2022,Other/Multiracial,None
+2022,Black,None
+2022,Black,None
+2022,East/SE Asian,Chinese
+2022,Black,None
+2022,Black,None
+2022,Black,None
+2022,South Asian,None
+2022,South Asian,None
+2022,Black,None
+2022,Black,None
+2022,East/SE Asian,None
+2022,Black,None
+2022,Black,None
+2022,Black,None
+2022,Latin American,Latino
+2023,Black,None
+2023,Latin American,Mexican
+2023,South Asian,Indian
+2023,Black,None
+2023,East/SE Asian,Chinese
+2023,Black,None
+2023,Other/Multiracial,None
+2023,East/SE Asian,Japanese
+2023,White,Ukrainian
+2023,Black,None
+2023,Black,None
+2023,South Asian,Indian
+2023,Latin American,None
+2023,Black,None
+2023,Black,None
+2023,Black,None
+2023,Black,None
+2023,East/SE Asian,None
+2023,West Asian/Middle Eastern,Palestinian
+2023,Black,Chinese
+2023,Black,None
+2023,Black,None
+2023,Black,None
+2023,South Asian,Indian
+2023,Black,None
+2023,East/SE Asian,Chinese
+2023,South Asian,Indian
+2023,Black,None
+2023,Black,None
+2023,South Asian,None
+2023,East/SE Asian,Chinese
+2023,Black,None
+2023,Black,None
+2023,Black,None
+2023,Black,None
+2023,Black,None
+2023,Black,None
+2023,East/SE Asian,Chinese
+2023,White,None
+2023,Black,None
+2023,Black,None
+2023,South Asian,None
+2023,White,None
+2023,East/SE Asian,Korean
+2023,Other/Multiracial,Ukrainian
+2023,Black,None
+2023,Black,None
+2023,Other/Multiracial,None
+2023,East/SE Asian,Filipino
+2023,Black,None
+2023,Black,None
+2023,Black,None
+2023,Black,None
+2023,Black,None
+2023,East/SE Asian,None
+2023,Black,None
+2023,East/SE Asian,None
+2023,East/SE Asian,Chinese
+2023,Black,None
+2023,Other/Multiracial,None
+2023,Black,None
+2023,South Asian,Indian
+2023,East/SE Asian,None
+2023,South Asian,None
+2023,East/SE Asian,None
+2023,East/SE Asian,None
+2023,Black,None
+2023,Black,None
+2023,South Asian,None
+2023,Black,None
+2023,South Asian,Indian
+2023,Black,None
+2023,Black,None
+2023,East/SE Asian,None
+2023,White,Russian
+2023,Black,None
+2023,East/SE Asian,Chinese
+2023,Black,None
+2023,Black,None
+2023,East/SE Asian,None
+2023,Black,None
+2023,Black,None
+2023,White,None
+2023,Black,None
+2023,Black,None
+2023,East/SE Asian,Chinese
+2023,South Asian,Indian
+2023,Black,Arab
+2023,Black,None
+2023,South Asian,None
+2023,Black,None
+2023,South Asian,Pakistani
+2023,Black,None
+2023,White,Ukrainian
+2023,Black,None
+2023,West Asian/Middle Eastern,Arab
+2023,West Asian/Middle Eastern,Palestinian
+2023,Black,None
+2023,Black,None
+2023,Other/Multiracial,None
+2023,White,None
+2023,Black,None
+2023,Black,None
+2023,West Asian/Middle Eastern,Palestinian
+2023,West Asian/Middle Eastern,Israeli
+2023,West Asian/Middle Eastern,Israeli
+2023,West Asian/Middle Eastern,Israeli
+2023,South Asian,Indian
+2023,West Asian/Middle Eastern,Palestinian
+2023,West Asian/Middle Eastern,Palestinian
+2023,Black,None
+2023,Black,None
+2023,South Asian,None
+2023,West Asian/Middle Eastern,Palestinian
+2023,Black,None
+2023,Black,None
+2023,West Asian/Middle Eastern,Israeli
+2023,West Asian/Middle Eastern,Palestinian
+2023,Other/Multiracial,Other Ethnicity not mentioned
+2023,South Asian,None
+2023,Black,None
+2023,West Asian/Middle Eastern,Israeli
+2023,Black,None
+2023,Black,None
+2023,Black,None
+2023,Other/Multiracial,Other Ethnicity not mentioned
+2023,East/SE Asian,None
+2023,West Asian/Middle Eastern,Palestinian
+2023,West Asian/Middle Eastern,Palestinian
+2023,South Asian,Indian
+2023,Latin American,Mexican
+2023,West Asian/Middle Eastern,Israeli
+2023,Black,None

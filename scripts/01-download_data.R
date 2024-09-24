@@ -5,11 +5,12 @@
 # Contact: parth.samant@mail.utoronto.ca 
 # License: MIT
 # Pre-requisites: None
-# Any other information needed?
 
 #### Workspace setup ####
 library(opendatatoronto)
 library(tidyverse)
+
+### Download Data ###
 
 # get package
 package <- show_package("hate-crimes-open-data")
@@ -26,5 +27,6 @@ unedited_data <- filter(datastore_resources, row_number()==1) %>% get_resource()
 unedited_data
 
 
+### Save Data ### 
 write.csv(unedited_data, "data/raw_data/Hate Crimes Open Data.csv", row.names = FALSE) 
          

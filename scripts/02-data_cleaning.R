@@ -1,44 +1,82 @@
 #### Preamble ####
-# Purpose: Cleans the raw plane data recorded by two observers..... [...UPDATE THIS...]
-# Author: Rohan Alexander [...UPDATE THIS...]
-# Date: 6 April 2023 [...UPDATE THIS...]
-# Contact: rohan.alexander@utoronto.ca [...UPDATE THIS...]
+# Purpose: Organises ethnic and racial groups into panethnic groups and removing unnecessary columns.
+# Author: Parth Samant
+# Date: 21 September 2024
+# Contact: parth.samant@mail.utoronto.ca 
 # License: MIT
-# Pre-requisites: [...UPDATE THIS...]
-# Any other information needed? [...UPDATE THIS...]
+# Pre-requisites: None
+# Any other information needed?
 
 #### Workspace setup ####
 library(tidyverse)
 
 #### Clean data ####
-raw_data <- read_csv("inputs/data/plane_data.csv")
+unedited_data <- read_csv("data/raw_data/Hate Crimes Open Data.csv")
+
+
+
+# selecting for race, ethnicity, and year columns as those are the only relevant ones to this analysis
+cleaned_data <- 
+  unedited_data |>
+  janitor::clean_names() |> 
+  select(
+    reported_year,
+    race_bias,
+    ethnicity_bias
+  ) |>
+  filter(race_bias != "None" | ethnicity_bias != "None")
+
+
+# Putting ethnicities/Races into one column. If the race is "None" but there is an entry for ethnicity, the ethnicity is put in the race column.
+for (i in 1:nrow(cleaned_data)) {
+  if (cleaned_data$race_bias[i] == "None") {
+    cleaned_data$race_bias[i] = cleaned_data$ethnicity_bias[i]
+  }
+}
+
+
+
+
+
+# to see which racial & ethnic groups exist in the dataset. This is used to help identify which ethnicities to group.
+cleaned_data$race_bias |>
+  unique()
+
+
+
+# Assigns ethnicities into a larger racial group
 
 cleaned_data <-
-  raw_data |>
-  janitor::clean_names() |>
-  select(wing_width_mm, wing_length_mm, flying_time_sec_first_timer) |>
-  filter(wing_width_mm != "caw") |>
+  cleaned_data |>
   mutate(
-    flying_time_sec_first_timer = if_else(flying_time_sec_first_timer == "1,35",
-                                   "1.35",
-                                   flying_time_sec_first_timer)
-  ) |>
-  mutate(wing_width_mm = if_else(wing_width_mm == "490",
-                                 "49",
-                                 wing_width_mm)) |>
-  mutate(wing_width_mm = if_else(wing_width_mm == "6",
-                                 "60",
-                                 wing_width_mm)) |>
-  mutate(
-    wing_width_mm = as.numeric(wing_width_mm),
-    wing_length_mm = as.numeric(wing_length_mm),
-    flying_time_sec_first_timer = as.numeric(flying_time_sec_first_timer)
-  ) |>
-  rename(flying_time = flying_time_sec_first_timer,
-         width = wing_width_mm,
-         length = wing_length_mm
-         ) |> 
-  tidyr::drop_na()
+    race_bias =
+      case_match(
+        race_bias,
+        "Black" ~ "Black",
+        "Chinese" ~ "East/SE Asian",
+        "Korean" ~ "East/SE Asian",
+        "Indian" ~ "South Asian",
+        "Pakistani" ~ "South Asian",
+        "Sri Lankan" ~ "South Asian",
+        "Iranian" ~ "West Asian/Middle Eastern",
+        "Arab" ~ "West Asian/Middle Eastern",
+        "Israeli" ~ "West Asian/Middle Eastern",
+        "White" ~ "White",
+        "Palestinian" ~ "West Asian/Middle Eastern",
+        "East/Southeast Asian" ~ "East/SE Asian",
+        "Filipino" ~ "East/SE Asian",
+        "Afghan" ~ "West Asian/Middle Eastern",
+        "Ukrainian" ~ "White",
+        "Russian" ~ "White",
+        "Latino" ~ "Latin American",
+        "Mexican" ~ "Latin American",
+        "Japanese" ~ "East/SE Asian",
+        "South Asian" ~ "South Asian",
+        .default = "Other/Multiracial"
+      )
+  )
+
+
 
 #### Save data ####
-write_csv(cleaned_data, "outputs/data/analysis_data.csv")
+write_csv(cleaned_data, "data/analysis_data/analysis_data.csv")
