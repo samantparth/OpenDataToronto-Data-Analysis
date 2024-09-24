@@ -19,11 +19,3 @@ The repo is structured as:
 ## Statement on LLM usage
 
 Aspects of the code were written with the help of the auto-complete tool, ChatGPT. `scripts/00-simulate_data.R` and `scripts/02-data_cleaning.R` were written with the help of OpenAI and the entire chat history is available under `other/llm/usage.txt`.
-
-## Some checks
-
-- [ ] Change the rproj file name so that it's not starter_folder.Rproj
-- [ ] Change the README title so that it's not Starter folder
-- [ ] Remove files that you're not using
-- [ ] Update comments in R scripts
-- [ ] Remove this checklist
