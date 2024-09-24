@@ -1,13 +1,11 @@
 ---
-title: "My title"
-subtitle: "My subtitle if needed"
+title: "Toronto Racial Hate Crimes: Black Victims Most Targeted, with Recent Increase Against South Asian and Israeli/Palestinian Victims"
 author: 
-  - First author
-  - Another author
-thanks: "Code and data are available at: LINK."
-date: today
+  - Parth Samant
+thanks: "Code and data are available at: https://github.com/samantparth/OpenDataToronto-Data-Analysis/."
+date: Sep 27 2024
 date-format: long
-abstract: "First sentence. Second sentence. Third sentence. Fourth sentence."
+abstract: "Hate crimes have been a constant occurence in urban centres such as Toronto, with different racial or ethnic groups experiencing more discrimination based on the year. This paper analyse hate crime data for race and ethnicity in Toronto from opendatatoronto in order to observe any trends. It was found that not only have hate crime incidents significantly risen since 2020, but surges in hate crime against specific groups often correlate to political and global events. Additionally, Black individuals were most often the victims of racial hate crimes by far."
 format: pdf
 number-sections: true
 bibliography: references.bib
@@ -19,203 +17,87 @@ bibliography: references.bib
 #| message: false
 
 library(tidyverse)
-library(palmerpenguins)
-```
+library(ggplot2)
 
+analysis_data <- read_csv(here::here("data/analysis_data/analysis_data.csv"))
+```
 
 # Introduction
 
-You can and should cross-reference sections and sub-sections. We use @citeR and @rohan.
+Toronto is known for being a city that embraces multiculturalism and accepts the different cultures and customs that new immigrants may have. However, the prevalence of hate crimes have posed a threat to these principles of tolerance and acceptance. Hate crimes can cause racial and ethnic minorities to experience a disconnect from themselves and a community that is supposed to welcome them. Analysing trends in hate crime can be a useful tool to understand the prevalence of extreme bigotry and discrimination against certain groups.
 
-The remainder of this paper is structured as follows. @sec-data....
+There is already awareness of hate crime incidents on specific racial and religious groups in Toronto, such as the positive correlation between COVID-19 and anti-Asian hate crimes. However, this paper aims to have a more comprehensive analysis that looks at many different racial and ethnic groups. Analysis of hate crime spikes against many groups is useful as it highlights certain groups that may be disproportionately affected by extreme hate. Widespread awareness of these occurrences can help informing the public about which racial/ethnic groups are most vulnerable. Additionally, this awareness can help city officials direct resources towards groups who may be the most targeted.
 
+Analysis was performed by extracting the hate crimes dataset from opendatatoronto (@opendatatoronto) focusing on the instances involving race or ethnicity. Ethnic groups were categorised into larger arbitrary 'racial groups' and different graphs show their own respective findings; this was done using the tidyverse (@tidyverse) package. The findings were that hate crimes overall have increased since 2020, especially against certain minority groups (particularly South Asian, Black, and East/SE Asian) as well as white individuals; this increase has continued even many years after the COVID-19 pandemic started. It was also found that black individuals have consistently been the most common victims of hate crime and that there was a surge in hate crime against West Asian/Middle Eastern individuals in 2023. These findings were discovered with the help of graphs made by ggplot (@ggplot).
 
+Subsequent sections include @sec-data that analyses certain hate crime trends. This first includes background on the dataset, data cleaning measures, and important notes. @sec-hcar Deals with the most 'significant' data, showing overall trends for every racial group. @sec-SA_G and @sec-WAME_G were graphs that came from noticing trends in @sec-hcar, and focuses on ethnicity-related trends of South Asian and West Asian/Middle Eastern victims respectively.
 
 # Data {#sec-data}
 
-Some of our data is of penguins (@fig-bills), from @palmerpenguins.
+All of the data obtained on Toronto hate crimes is from opendatatoronto (@opendatatoronto) that is reported by the Toronto Police Department. This dataset exists likely to help analyse broader trends on hate towards specific groups. This only deals with incidents that were reported to the police, which means that there are likely many hate crime incidents that also went unreported. Thus, Reporting bias also may exist among those that are hesitant to call the police or those that are not fluent in English. Additionally, simply analysing ethnic/racial hate crimes excludes data based on religion, which can be heavily associated with ones ethnicity. For example, anti-Jewish hate crimes are not mentioned as they are categorized as religious hate. Also, groupings are based on the victim's group assumed by the suspect (as opposed to their actual identity).
+
+The dataset of hate crime instances in Toronto was cleaned using tools from @citeR and @rohan. It deals with three variables: the year of the hate crime occurring, the associated racial group, and their ethnicity. The variable associated with the victims minority group was made by grouping the ethnicity into a larger racial group and merging it into the racial bias column (details found in `scripts/"02-data_cleaning.R"`). There were no similar datasets that were found, as hate crime instances are reported mainly by the Toronto Police (which is where the data is from).
+
+Although my decisions were partially informed by Statistics Canada (@statcan), It is important to note that the classifications of ethnic groups into larger racial groups is quite arbitrary. However, this said grouping is useful for looking for overall disparities between people of different origins. This paper is meant to deal with overall and broad trends that could open the door to analysis of discrimination against specific ethnic groups.
+
+## About @fig-hate-crimes-all-races {#sec-hcar}
+
+@fig-hate-crimes-all-races (data provided by @opendatatoronto) shows the number of hate crimes by year and grouped by race. Overall, it shows a large spike from 2020 onwards that has remained nearly consistent even in 2023. In fact, hate crimes from 2020-2023 are roughly 2-3 times higher than they were in the previous years, which is correlated with the appearance of the COVID-19 pandemic. Groups that experienced the most significant increase include Black, South Asian, East/SE Asian, and White victims. Furthermore, hate crimes against East/SE dramatically increased in 2021, which was also correlated with rising anti-Asian sentiment from COVID-19.
+
+Some other factors of interest include black victims making up a plurality of victims for every single year since 2018. Black people in Toronto are disproportionately victims of reported racial hate crime. Additionally, multiracial/other saw a spike in 2022, but analysis on ethnic groups is difficult as the original dataset did not assign ethnicities to most in that group.
+
+However, instances against West Asian/Middle Eastern and South Asian people notably increased in 2023. These groups have many ethnicities under them, with the ethnicity of victims of both groups showed in @fig-SA_graph (South Asian) and @fig-WAME_graph (West Asian/Middle Eastern).
+
+### About @fig-SA_graph {#sec-SA_G}
+
+@fig-SA_graph breaks down the ethnicity of hate crime victims who are assumed to be of South Asian descent. A notable aspect is that hate crimes, specifically against Indians, appear to have significantly increased from 2020 onwards. Additionally, the rise in "None" indicates that victims were targeted based on simply being South Asian. Thus, the increase in 2023 is from increased occurrences against those assumed to be Indian or South Asian more generally.
+
+### About @fig-WAME_graph {#sec-WAME_G}
+
+@fig-WAME_graph breaks down the ethnicity of hate crime victims who are assumed to be of West Asian or Middle Eastern descent. Unlike @fig-SA_graph, the increase in hatred against this group is not because they are assumed to be West Asian or Middle Eastern more generally. However, it is because they are of a specific ethnicity that is part of this group. Most years had Israeli victims as the largest group, but 2023 saw a dramatic increase in hate crimes - especially against Israelis and Palestinians. This is correlated with the current conflict going on in the region, which also escalated in 2023.
+
+It is also important to note that the rise in hate crimes against Israelis and Palestinians may have overlap with religious hate crimes against Jewish and Muslim victims, which were not included in this analysis.
 
 ```{r}
-#| label: fig-bills
-#| fig-cap: Bills of penguins
+#| label: fig-hate-crimes-all-races
+#| fig-cap: Hate Crimes Victims by Race and Year
 #| echo: false
 
-ggplot(penguins, aes(x = island, fill = species)) +
-  geom_bar(alpha = 0.8) +
-  scale_fill_manual(values = c("darkorange","purple","cyan4"),
-                    guide = "none") +
-  theme_minimal() +
-  facet_wrap(~species, ncol = 1) +
-  coord_flip()
-```
 
-Talk more about it.
-
-And also planes (@fig-planes). (You can change the height and width, but don't worry about doing that until you have finished every other aspect of the paper - Quarto will try to make it look nice and the defaults usually work well once you have enough text.)
-
-```{r}
-#| label: fig-planes
-#| fig-cap: Relationship between wing length and width
-#| echo: false
-#| warning: false
-#| message: false
-
-analysis_data <- read_csv(here::here("data/analysis_data/analysis_data.csv"))
-
-analysis_data |> 
-  ggplot(aes(x = width, y = length)) +
-  geom_point(alpha = 0.8) +
-  theme_minimal() +
-  labs(x = "Wing width (mm)",
-       y = "Wing length (mm)")
-```
-
-Talk way more about it. 
-
-
-
-# Model
-
-The goal of our modelling strategy is twofold. Firstly,...
-
-Here we briefly describe the Bayesian analysis model used to investigate... Background details and diagnostics are included in [Appendix -@sec-model-details].
-
-## Model set-up
-
-Define $y_i$ as the number of seconds that the plane remained aloft. Then $\beta_i$ is the wing width and $\gamma_i$ is the wing length, both measured in millimeters.  
-
-\begin{align} 
-y_i|\mu_i, \sigma &\sim \mbox{Normal}(\mu_i, \sigma) \\
-\mu_i &= \alpha + \beta_i + \gamma_i\\
-\alpha &\sim \mbox{Normal}(0, 2.5) \\
-\beta &\sim \mbox{Normal}(0, 2.5) \\
-\gamma &\sim \mbox{Normal}(0, 2.5) \\
-\sigma &\sim \mbox{Exponential}(1)
-\end{align}
-
-We run the model in R [@citeR] using the `rstanarm` package of @rstanarm. We use the default priors from `rstanarm`.
-
-
-### Model justification
-
-We expect a positive relationship between the size of the wings and time spent aloft. In particular...
-
-We can use maths by including latex between dollar signs, for instance $\theta$.
-
-
-# Results
-
-Our results are summarized in @tbl-modelresults.
-
-```{r}
-#| echo: false
-#| eval: true
-#| warning: false
-#| message: false
-
-library(rstanarm)
-
-first_model <-
-  readRDS(file = here::here("models/first_model.rds"))
+analysis_data |>
+  ggplot(aes(x = reported_year, fill = race_bias)) +
+  geom_bar() +
+  labs(y = "Amount", fill = "Group", x = "Year") +
+  scale_fill_viridis_d(option = "H")
+  
 ```
 
 ```{r}
+#| label: fig-SA_graph
+#| fig-cap: South Asian Hate Crimes Victims by Ethnicity and Year
 #| echo: false
-#| eval: true
-#| label: tbl-modelresults
-#| tbl-cap: "Explanatory models of flight time based on wing width and wing length"
-#| warning: false
 
-modelsummary::modelsummary(
-  list(
-    "First model" = first_model
-  ),
-  statistic = "mad",
-  fmt = 2
-)
+analysis_data |>
+  filter(race_bias == "South Asian") |>
+  ggplot(aes(x = reported_year, fill = ethnicity_bias)) +
+  geom_bar() +
+  labs(y = "Amount", fill = "Ethnicity", x = "Year") +
+  scale_fill_viridis_d(option = "F")
 ```
 
+```{r}
+#| label: fig-WAME_graph
+#| fig-cap: West Asian/Middle Eastern Hate Crimes Victims by Ethnicity and Year
+#| echo: false
 
-
-
-# Discussion
-
-## First discussion point {#sec-first-point}
-
-If my paper were 10 pages, then should be be at least 2.5 pages. The discussion is a chance to show off what you know and what you learnt from all this. 
-
-## Second discussion point
-
-## Third discussion point
-
-## Weaknesses and next steps
-
-Weaknesses and next steps should also be included.
+analysis_data |>
+  filter(race_bias == "West Asian/Middle Eastern") |>
+  ggplot(aes(x = reported_year, fill = ethnicity_bias)) +
+  geom_bar() +
+  labs(y = "number of instances", fill = "Ethnicity", x = "Year") +
+  scale_fill_viridis_d(option = "D", direction = -1)
+```
 
 \newpage
-
-\appendix
-
-# Appendix {-}
-
-
-# Additional data details
-
-# Model details {#sec-model-details}
-
-## Posterior predictive check
-
-In @fig-ppcheckandposteriorvsprior-1 we implement a posterior predictive check. This shows...
-
-In @fig-ppcheckandposteriorvsprior-2 we compare the posterior with the prior. This shows... 
-
-```{r}
-#| eval: true
-#| echo: false
-#| message: false
-#| warning: false
-#| label: fig-ppcheckandposteriorvsprior
-#| layout-ncol: 2
-#| fig-cap: "Examining how the model fits, and is affected by, the data"
-#| fig-subcap: ["Posterior prediction check", "Comparing the posterior with the prior"]
-
-pp_check(first_model) +
-  theme_classic() +
-  theme(legend.position = "bottom")
-
-posterior_vs_prior(first_model) +
-  theme_minimal() +
-  scale_color_brewer(palette = "Set1") +
-  theme(legend.position = "bottom") +
-  coord_flip()
-```
-
-## Diagnostics
-
-@fig-stanareyouokay-1 is a trace plot. It shows... This suggests...
-
-@fig-stanareyouokay-2 is a Rhat plot. It shows... This suggests...
-
-```{r}
-#| echo: false
-#| eval: true
-#| message: false
-#| warning: false
-#| label: fig-stanareyouokay
-#| fig-cap: "Checking the convergence of the MCMC algorithm"
-#| fig-subcap: ["Trace plot", "Rhat plot"]
-#| layout-ncol: 2
-
-plot(first_model, "trace")
-
-plot(first_model, "rhat")
-```
-
-
-
-\newpage
-
 
 # References
-
-
