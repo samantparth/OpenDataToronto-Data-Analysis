@@ -1,10 +1,11 @@
 #### Preamble ####
-# Purpose: Testing the cleaned dataset, requires 02-data_cleaning.R to be ran first
+# Purpose: Runs tests on the cleaned data to make sure that the dataset was cleaned intended.
 # Author: Parth Samant
 # Date: 21 September 2024
 # Contact: parth.samant@mail.utoronto.ca 
 # License: MIT
 # Pre-requisites: None
+
 
 #### Workspace setup ####
 library(tidyverse)

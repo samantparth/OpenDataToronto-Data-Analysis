@@ -1,11 +1,12 @@
 ---
-title: "Toronto Racial Hate Crimes: Black Victims Most Targeted, with Recent Increase Against South Asian and Israeli/Palestinian Victims"
+title: "Racial and Ethnic Hate Crimes in Toronto (2018-2023)"
+subtitle: "Overall Trends and Recent Changes"
 author: 
   - Parth Samant
 thanks: "Code and data are available at: https://github.com/samantparth/OpenDataToronto-Data-Analysis/."
 date: Sep 27 2024
 date-format: long
-abstract: "Hate crimes have been a constant occurence in urban centres such as Toronto, with different racial or ethnic groups experiencing more discrimination based on the year. This paper analyse hate crime data for race and ethnicity in Toronto from opendatatoronto in order to observe any trends. It was found that not only have hate crime incidents significantly risen since 2020, but surges in hate crime against specific groups often correlate to political and global events. Additionally, Black individuals were most often the victims of racial hate crimes by far."
+abstract: "Hate crimes have been a constant occurence in urban centres such as Toronto, with different racial or ethnic groups experiencing more discrimination based on the year. This paper analyses hate crime data for race and ethnicity in Toronto from opendatatoronto in order to observe any trends. It was found that not only have hate crime incidents significantly risen since 2020, but surges in hate crime against specific groups often correlate to political and global events. Additionally, Black individuals were most often the victims of racial hate crimes by far. "
 format: pdf
 number-sections: true
 bibliography: references.bib
@@ -22,41 +23,43 @@ library(ggplot2)
 analysis_data <- read_csv(here::here("data/analysis_data/analysis_data.csv"))
 ```
 
-# Introduction
+# Introduction {#sec-intro}
 
-Toronto is known for being a city that embraces multiculturalism and accepts the different cultures and customs that new immigrants may have. However, the prevalence of hate crimes have posed a threat to these principles of tolerance and acceptance. Hate crimes can cause racial and ethnic minorities to experience a disconnect from themselves and a community that is supposed to welcome them. Analysing trends in hate crime can be a useful tool to understand the prevalence of extreme bigotry and discrimination against certain groups.
+Toronto is known for being a city that embraces multiculturalism and accepts the different cultures and customs that new immigrants may have. However, the prevalence of hate crimes have posed a threat to these principles of tolerance and acceptance. Hate crimes can cause racial and ethnic minorities to experience a disconnect from themselves and a community that is supposed to welcome them.
 
-There is already awareness of hate crime incidents on specific racial and religious groups in Toronto, such as the positive correlation between COVID-19 and anti-Asian hate crimes. However, this paper aims to have a more comprehensive analysis that looks at many different racial and ethnic groups. Analysis of hate crime spikes against many groups is useful as it highlights certain groups that may be disproportionately affected by extreme hate. Widespread awareness of these occurrences can help informing the public about which racial/ethnic groups are most vulnerable. Additionally, this awareness can help city officials direct resources towards groups who may be the most targeted.
+There is already awareness of hate crime incidents on specific racial and religious groups in Toronto, such as the positive correlation between COVID-19 and anti-Asian hate crimes (@cbc2023asian_hate_crime). However, this paper aims to have a more comprehensive analysis that looks at many different racial and ethnic groups. Analysis of hate crime spikes against many groups is useful as it highlights certain groups that may be disproportionately affected by extreme hate. Widespread awareness of these occurrences can help to inform the public about which racial/ethnic groups are most vulnerable and informs city officials to direct resources towards groups who may be the most targeted.
 
-Analysis was performed by extracting the hate crimes dataset from opendatatoronto (@opendatatoronto) focusing on the instances involving race or ethnicity. Ethnic groups were categorised into larger arbitrary 'racial groups' and different graphs show their own respective findings; this was done using the tidyverse (@tidyverse) package. The findings were that hate crimes overall have increased since 2020, especially against certain minority groups (particularly South Asian, Black, and East/SE Asian) as well as white individuals; this increase has continued even many years after the COVID-19 pandemic started. It was also found that black individuals have consistently been the most common victims of hate crime and that there was a surge in hate crime against West Asian/Middle Eastern individuals in 2023. These findings were discovered with the help of graphs made by ggplot (@ggplot).
+Analysis was performed by extracting the hate crimes dataset from opendatatoronto (@opendatatoronto) focusing on the instances involving race or ethnicity. Ethnic groups were categorised into larger arbitrary 'racial groups' using the tidyverse (@tidyverse) package. The findings were that hate crimes overall have increased since 2020, especially against certain minority groups (particularly South Asian, Black, and East/Southeast Asian) and white individuals; this increase has continued even many years after the COVID-19 pandemic started. It was also found that black individuals were consistently the most common hate crime victims. Additionally, there was a surge in hate crime against South Asian and West Asian/Middle Eastern individuals in 2023. These findings were discovered with the help of graphs made by ggplot (@ggplot).
 
-Subsequent sections include @sec-data that analyses certain hate crime trends. This first includes background on the dataset, data cleaning measures, and important notes. @sec-hcar Deals with the most 'significant' data, showing overall trends for every racial group. @sec-SA_G and @sec-WAME_G were graphs that came from noticing trends in @sec-hcar, and focuses on ethnicity-related trends of South Asian and West Asian/Middle Eastern victims respectively.
+Subsequent sections include @sec-data that focuses on the dataset. This first includes @sec-ordata and @sec-cledata which mention aspects of the original and cleaned dataset. @sec-ordata also mentions measurement and limitations of the original dataset. @sec-res-dis, or the results/discussion, consists of @sec-hcar which deals with the most 'significant' data, showing overall trends for every racial group. @sec-SA_G and @sec-WAME_G were graphs that came from noticing trends in @sec-hcar, and focuses on ethnicity-related trends of South Asian and West Asian/Middle Eastern victims respectively. @sec-disc, the final section, shows the significance of the results that were found. 
 
 # Data {#sec-data}
 
-All of the data obtained on Toronto hate crimes is from opendatatoronto (@opendatatoronto) that is reported by the Toronto Police Department. This dataset exists likely to help analyse broader trends on hate towards specific groups. This only deals with incidents that were reported to the police, which means that there are likely many hate crime incidents that also went unreported. Thus, Reporting bias also may exist among those that are hesitant to call the police or those that are not fluent in English. Additionally, simply analysing ethnic/racial hate crimes excludes data based on religion, which can be heavily associated with ones ethnicity. For example, anti-Jewish hate crimes are not mentioned as they are categorized as religious hate. Also, groupings are based on the victim's group assumed by the suspect (as opposed to their actual identity).
+## Aspects of Original Dataset (Including Measurement + Limitations) {#sec-ordata}
 
-The dataset of hate crime instances in Toronto was cleaned using tools from @citeR and @rohan. It deals with three variables: the year of the hate crime occurring, the associated racial group, and their ethnicity. The variable associated with the victims minority group was made by grouping the ethnicity into a larger racial group and merging it into the racial bias column (details found in `scripts/"02-data_cleaning.R"`). There were no similar datasets that were found, as hate crime instances are reported mainly by the Toronto Police (which is where the data is from).
+All of the data obtained on Toronto hate crimes is from opendatatoronto (@opendatatoronto) that is reported by the Toronto Police Department. This only deals with incidents that were reported to the police, which means that there are likely many hate crime incidents that also went unreported. Thus, reporting bias also may exist among those that are hesitant to call the police or those that are not fluent in English.
 
-Although my decisions were partially informed by Statistics Canada (@statcan), It is important to note that the classifications of ethnic groups into larger racial groups is quite arbitrary. However, this said grouping is useful for looking for overall disparities between people of different origins. This paper is meant to deal with overall and broad trends that could open the door to analysis of discrimination against specific ethnic groups.
+Additionally, simply analysing ethnic/racial hate crimes excludes data based on religion, which can be heavily associated with ones ethnicity. For example, anti-Jewish hate crimes are not included under racial/ethnic hate, but only religious hate. Also, the victim's demographic group in the dataset is the group assumed by the suspect (rather than their actual identity).
 
-## About @fig-hate-crimes-all-races {#sec-hcar}
+There were also no similar datasets that were found, as hate crime instances are reported primarily by the Toronto Police (which is where this data is from).
 
-@fig-hate-crimes-all-races (data provided by @opendatatoronto) shows the number of hate crimes by year and grouped by race. Overall, it shows a large spike from 2020 onwards that has remained nearly consistent even in 2023. In fact, hate crimes from 2020-2023 are roughly 2-3 times higher than they were in the previous years, which is correlated with the appearance of the COVID-19 pandemic. Groups that experienced the most significant increase include Black, South Asian, East/SE Asian, and White victims. Furthermore, hate crimes against East/SE dramatically increased in 2021, which was also correlated with rising anti-Asian sentiment from COVID-19.
+This dataset likely exists to help analyse broader trends on hate towards specific groups. Like many other major cities, Toronto has a large amount of hate crimes every year. Analysing these broader trends can help the city allocate resources towards certain communities.
 
-Some other factors of interest include black victims making up a plurality of victims for every single year since 2018. Black people in Toronto are disproportionately victims of reported racial hate crime. Additionally, multiracial/other saw a spike in 2022, but analysis on ethnic groups is difficult as the original dataset did not assign ethnicities to most in that group.
+The original dataset can be found under `data/raw_data/"Hate-Crimes-Open-Data.csv"`.
 
-However, instances against West Asian/Middle Eastern and South Asian people notably increased in 2023. These groups have many ethnicities under them, with the ethnicity of victims of both groups showed in @fig-SA_graph (South Asian) and @fig-WAME_graph (West Asian/Middle Eastern).
+## Aspects of Cleaned Dataset {#sec-cledata}
 
-### About @fig-SA_graph {#sec-SA_G}
+To help withanalysis, ethnic groups were put into larger racial groups. Although the groupings were partially informed by Statistics Canada (@statcan), these groupings are quite arbitrary. However, this said grouping is useful at looking for overall disparities between people of different origins. Noticing these broad trends opens the door to more technical analysis of ethnic discrimination.
 
-@fig-SA_graph breaks down the ethnicity of hate crime victims who are assumed to be of South Asian descent. A notable aspect is that hate crimes, specifically against Indians, appear to have significantly increased from 2020 onwards. Additionally, the rise in "None" indicates that victims were targeted based on simply being South Asian. Thus, the increase in 2023 is from increased occurrences against those assumed to be Indian or South Asian more generally.
+The dataset of hate crime instances in Toronto was cleaned using tools and techniques from @citeR, @rohan, @tidyverse, and @janitor. It deals with three variables: the year of the hate crime occurring, the associated racial group, and their ethnicity. The variable associated with the victims minority group was made by grouping the ethnicity into a larger racial group and merging it into the racial bias column (details for cleaning found in `scripts/"02-data_cleaning.R"`). Also, the "Number of Incidents" variable shown for graphs in @sec-res-dis is not a real variable in the cleaned dataset; it is merely a count of how many incidences against a particular group there were.
 
-### About @fig-WAME_graph {#sec-WAME_G}
+During data cleaning, it was found that reported hate crimes against black individuals were always based on the suspect thinking they were black. In other words, ethnic groups that would otherwise be categorized as 'black' were not once in the data. This is an anomaly from the rest of the data, where other groups were often attacked based on an assumption of their ethnicity.
 
-@fig-WAME_graph breaks down the ethnicity of hate crime victims who are assumed to be of West Asian or Middle Eastern descent. Unlike @fig-SA_graph, the increase in hatred against this group is not because they are assumed to be West Asian or Middle Eastern more generally. However, it is because they are of a specific ethnicity that is part of this group. Most years had Israeli victims as the largest group, but 2023 saw a dramatic increase in hate crimes - especially against Israelis and Palestinians. This is correlated with the current conflict going on in the region, which also escalated in 2023.
+# Results of Data {#sec-res-dis}
 
-It is also important to note that the rise in hate crimes against Israelis and Palestinians may have overlap with religious hate crimes against Jewish and Muslim victims, which were not included in this analysis.
+## Results of @fig-hate-crimes-all-races {#sec-hcar}
+
+@fig-hate-crimes-all-races shows a large spike from 2020 onwards that has remained nearly consistent even in 2023. Black, South Asian, East/Southeast Asian, and White victims experienced the most significant increase post-pandemic. Furthermore, hate crimes against East/Southeast Asians dramatically increased in 2021. More recently, instances against West Asian/Middle Eastern and South Asian people increased in 2023 in particular. @fig-SA_graph (South Asian) and @fig-WAME_graph (West Asian/Middle Eastern) explore these trends in more detail. Ethnic analysis onto spikes of other groups was difficult because of limited ethnicity data from the original dataset.
 
 ```{r}
 #| label: fig-hate-crimes-all-races
@@ -65,25 +68,38 @@ It is also important to note that the rise in hate crimes against Israelis and P
 
 
 analysis_data |>
-  ggplot(aes(x = reported_year, fill = race_bias)) +
-  geom_bar() +
-  labs(y = "Amount", fill = "Group", x = "Year") +
-  scale_fill_viridis_d(option = "H")
+  ggplot(aes(x = reported_year, fill = fct_rev(race_bias))) +
+  labs(y = "Number of Incidents", fill = "Group", x = "Year") +
+  scale_fill_viridis_d(option = "H", direction = -1) +
+  geom_bar()
   
 ```
+
+## Results of @fig-SA_graph {#sec-SA_G}
+
+Hate crimes, specifically against Indians, appear to have significantly increased from 2020 onwards. The rise in "None" also indicates that victims were targeted based on simply being South Asian. Thus, the increase in 2023 is from increased occurrences against those assumed to be Indian or South Asian more generally.
 
 ```{r}
 #| label: fig-SA_graph
 #| fig-cap: South Asian Hate Crimes Victims by Ethnicity and Year
 #| echo: false
 
+
 analysis_data |>
   filter(race_bias == "South Asian") |>
   ggplot(aes(x = reported_year, fill = ethnicity_bias)) +
   geom_bar() +
-  labs(y = "Amount", fill = "Ethnicity", x = "Year") +
-  scale_fill_viridis_d(option = "F")
+  labs(y = "Number of Incidents", fill = "Ethnicity", x = "Year") +
+  scale_fill_viridis_d(option = "F") 
+
+
+
+
 ```
+
+## Results of @fig-WAME_graph {#sec-WAME_G}
+
+Most years had Israeli victims as the largest group, but 2023 saw a dramatic increase in hate crimes - especially against Israelis and Palestinians. There are also rarely instances of victims that are "None", indicating victims in this group are targeted more because of ethnicity.
 
 ```{r}
 #| label: fig-WAME_graph
@@ -94,9 +110,48 @@ analysis_data |>
   filter(race_bias == "West Asian/Middle Eastern") |>
   ggplot(aes(x = reported_year, fill = ethnicity_bias)) +
   geom_bar() +
-  labs(y = "number of instances", fill = "Ethnicity", x = "Year") +
+  labs(y = "Number of Incidents", fill = "Ethnicity", x = "Year") +
   scale_fill_viridis_d(option = "D", direction = -1)
 ```
+
+# Discussion{#sec-disc}
+
+## About @fig-hate-crimes-all-races
+
+The graph shows hate crimes from 2020-2023 were roughly 2-3 times higher than they were in the previous years, which was correlated with the appearance of the COVID-19 pandemic. East and Southeast Asians experienced a significant increase from the pandemic, which has been mentioned in other analyses (@cbc2023asian_hate_crime).
+
+Some other factors of interest include black victims making up a plurality of victims for every single year since 2018. Black people in Toronto are disproportionately victims of reported racial hate crime - much more than any other group. It has been well-established that most face racial discrimination at least a few times a month (@social_capital_study) and that they are disproportionately targeted by Toronto police (@ohrc).
+
+As this data is reported by the Toronto Police Department, it is also possible that anti-black racism from the police spreads to reports of hate crimes as well. This could mean black individuals who are victims of hate crimes may have greater reluctance to report the crime to the police.
+
+
+
+## About @fig-SA_graph
+
+Hate crimes, specifically against Indians, appear to have significantly increased in 2020. This is possibly a result of the stresses from the pandemic. 
+
+The rise in "None" also indicates that victims were targeted based on simply being South Asian. Thus, the increase in 2023 is from increased occurrences against those assumed to be Indian or South Asian more generally. It must be noted that it is difficult to determine whether the increase in 2023 was because of increased hate or because of random statistical noise. More research should be done to explore this rise and potential causes.
+
+However, this recent rise in anti-South Asian hate is correlated to a substantial rise in racism online towards South Asians, including websites that are notorious for extremism such as 4chan (which fuel real life hate crimes). In fact, racist language against South Asians on the website has risen over twofold between January 2023 and 2024 (@SA_online_hate).
+
+
+## About @fig-WAME_graph
+
+Unlike @fig-SA_graph, the increase in hatred against West Asian/Middle Eastern groups is not because they are assumed to be West Asian or Middle Eastern more generally. Instead, it is because they are of a specific ethnicity that is part of this group.
+
+As mentioned in the results, most years had Israeli victims as the largest group, but 2023 saw a dramatic increase in hate crimes - especially against Israelis and Palestinians. This is correlated with the escalation of the Israel-Palestine conflict that occurred in 2023.
+
+It is also important to note that the rise in hate crimes against Israelis and Palestinians may have overlap with religious hate crimes against Jewish and Muslim victims, which were not included in this analysis. It is possible that the true amount of hate crimes connected to the escalations in 2023 are higher than indicated. More about this overlap is found in @sec-ordata.
+
+## Overall Discussion Takeaways
+
+The results showed a substantial pivot from 2020 onwards, showing a large increase. The pandemic created an environment of uncertainty where ethnic and racial minorities often became a convenient scapegoat. The increase in ethnic & racial hatred from the pandemic has continued as far as 2023. 
+
+It is also evident that Black Torontonians are the most likely victims by far. As hate crime data is managed by the police, anti-black bias may undermine the severity of these results. Additionally, there has been a recent rise of hate crimes against South Asians and Israelis/Palestinians. 
+
+Not only can hate crimes pose physical harm to the victim, but can also cause lasting psychological trauma. Thus, the trends shown in the analysis highlight the urgent need to address surges in violence against these group and hate-related inequalities that exist.
+
+
 
 \newpage
 

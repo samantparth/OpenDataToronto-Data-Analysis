@@ -1,5 +1,5 @@
 #### Preamble ####
-# Purpose: Downloads Toronto Hate Crime Data onto RStudio
+# Purpose: Downloads Toronto Hate Crime Data onto local R environment
 # Author: Parth Samant
 # Date: 21 September 2024
 # Contact: parth.samant@mail.utoronto.ca 
@@ -28,5 +28,5 @@ unedited_data
 
 
 ### Save Data ### 
-write.csv(unedited_data, "data/raw_data/Hate Crimes Open Data.csv", row.names = FALSE) 
+write.csv(unedited_data, "data/raw_data/Hate-Crimes-Open-Data.csv", row.names = FALSE) 
          

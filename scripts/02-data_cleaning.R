@@ -1,11 +1,13 @@
 #### Preamble ####
-# Purpose: Organises ethnic and racial groups into panethnic groups and removing unnecessary columns.
+# Purpose: Organises ethnic groups into racial groups and removes unnecessary columns.
 # Author: Parth Samant
 # Date: 21 September 2024
-# Contact: parth.samant@mail.utoronto.ca 
+# Contact: parth.samant@mail.utoronto.ca
 # License: MIT
 # Pre-requisites: None
-# Any other information needed?
+
+
+
 
 #### Workspace setup ####
 library(tidyverse)
@@ -16,9 +18,9 @@ unedited_data <- read_csv("data/raw_data/Hate Crimes Open Data.csv")
 
 
 # selecting for race, ethnicity, and year columns as those are the only relevant ones to this analysis
-cleaned_data <- 
+cleaned_data <-
   unedited_data |>
-  janitor::clean_names() |> 
+  janitor::clean_names() |>
   select(
     reported_year,
     race_bias,
@@ -30,7 +32,7 @@ cleaned_data <-
 # Putting ethnicities/Races into one column. If the race is "None" but there is an entry for ethnicity, the ethnicity is put in the race column.
 for (i in 1:nrow(cleaned_data)) {
   if (cleaned_data$race_bias[i] == "None") {
-    cleaned_data$race_bias[i] = cleaned_data$ethnicity_bias[i]
+    cleaned_data$race_bias[i] <- cleaned_data$ethnicity_bias[i]
   }
 }
 
@@ -72,6 +74,7 @@ cleaned_data <-
         "Mexican" ~ "Latin American",
         "Japanese" ~ "East/SE Asian",
         "South Asian" ~ "South Asian",
+        "Middle Eastern" ~ "West Asian/Middle Eastern",
         .default = "Other/Multiracial"
       )
   )

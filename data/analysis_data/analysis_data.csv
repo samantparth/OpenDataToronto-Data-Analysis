@@ -63,7 +63,7 @@ reported_year,race_bias,ethnicity_bias
 2019,South Asian,Indian
 2019,White,None
 2019,West Asian/Middle Eastern,Israeli
-2019,Other/Multiracial,None
+2019,West Asian/Middle Eastern,None
 2019,Black,None
 2019,Other/Multiracial,None
 2019,White,None
@@ -383,7 +383,7 @@ reported_year,race_bias,ethnicity_bias
 2022,Black,None
 2022,Black,None
 2022,Black,None
-2022,Other/Multiracial,None
+2022,West Asian/Middle Eastern,None
 2022,Black,None
 2022,Black,None
 2022,Black,None

@@ -7,6 +7,7 @@
 # Pre-requisites: None
 # Any other information needed?
 
+set.seed("304")
 
 #### Workspace setup ####
 library(tidyverse)
