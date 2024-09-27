@@ -25,8 +25,8 @@ library(tidyverse)
 
  simulation <- tibble(
   date = sample(x = c(2018, 2019, 2020, 2021, 2022, 2023), size = 50, replace = TRUE),
-  ethnicity = sample(x = c("None", "Black", "Chinese", "Korean", "Indian", "Pakistani", "Sri Lankan", "Iranian", "Arab", "Israeli", "White", "Palestinian", "East/Southeast Asian", "Filipino", "Afghan", "Ukrainian", "Russian", "Latino", "Mexican", "Japanese", "South Asian"), size = 50, replace = TRUE),
-  race = ethnicity
+  ethnicity_bias = sample(x = c("None", "Black", "Chinese", "Korean", "Indian", "Pakistani", "Sri Lankan", "Iranian", "Arab", "Israeli", "White", "Palestinian", "East/Southeast Asian", "Filipino", "Afghan", "Ukrainian", "Russian", "Latino", "Mexican", "Japanese", "South Asian"), size = 50, replace = TRUE),
+  race_bias = ethnicity_bias
   )
 
  
@@ -35,9 +35,9 @@ library(tidyverse)
  simulation <-
    simulation |>
    mutate(
-     race =
+     race_bias =
        case_match(
-         race,
+         race_bias,
          "Black" ~ "Black",
          "Chinese" ~ "East/SE Asian",
          "Korean" ~ "East/SE Asian",
@@ -63,6 +63,7 @@ library(tidyverse)
    )
  
 
+
  
  
  
@@ -71,13 +72,32 @@ library(tidyverse)
 
  
  # tests that there are no "None" entries for BOTH ethnicity and race
- all(simulation$ethnicity != "None" | simulation$race != "None" )
+ all(simulation$ethnicity_bias != "None" | simulation$race_bias != "None" )
    
    
  
  # tests that there is no N/A in the table
  
  all(!is.na(simulation))
+ 
+ # Tests that ethnic groups in the dataset are assigned into proper group
+ 
+ check_race <- function(ethnicity_bias, race) {
+   if (ethnicity_bias %in% c("Indian", "Pakistani", "Sri Lankan") && race == "South Asian") {
+     return(TRUE)
+   } else if (ethnicity_bias %in% c("Chinese", "Japanese", "Korean", "Filipino") && race == "East/SE Asian") {
+     return(TRUE)
+   } else if (ethnicity_bias %in% c("Mexican", "Latino") && race == "Latin American") {
+     return(TRUE)
+   } else if (ethnicity_bias %in% c("Palestinian", "Israeli", "Iranian", "Arab") && race == "West Asian/Middle Eastern") {
+     return(TRUE)
+   } else if (ethnicity_bias %in% c("Other") && race == "Other/Multiracial") {
+     return(TRUE)
+   } else {
+     return(FALSE) # Returns FALSE if the race assignment is incorrect
+   }
+ }
+ 
  
  
  
