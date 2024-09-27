@@ -31,7 +31,7 @@ There is already awareness of hate crime incidents on specific racial and religi
 
 Analysis was performed by extracting the hate crimes dataset from opendatatoronto (@opendatatoronto) focusing on the instances involving race or ethnicity. Ethnic groups were categorised into larger arbitrary 'racial groups' using the tidyverse (@tidyverse) package. The findings were that hate crimes overall have increased since 2020, especially against certain minority groups (particularly South Asian, Black, and East/Southeast Asian) and white individuals; this increase has continued even many years after the COVID-19 pandemic started. It was also found that black individuals were consistently the most common hate crime victims. Additionally, there was a surge in hate crime against South Asian and West Asian/Middle Eastern individuals in 2023. These findings were discovered with the help of graphs made by ggplot (@ggplot).
 
-Subsequent sections include @sec-data that focuses on the dataset. This first includes @sec-ordata and @sec-cledata which mention aspects of the original and cleaned dataset. @sec-ordata also mentions measurement and limitations of the original dataset. @sec-res-dis, or the results/discussion, consists of @sec-hcar which deals with the most 'significant' data, showing overall trends for every racial group. @sec-SA_G and @sec-WAME_G were graphs that came from noticing trends in @sec-hcar, and focuses on ethnicity-related trends of South Asian and West Asian/Middle Eastern victims respectively. @sec-disc, the final section, shows the significance of the results that were found. 
+Subsequent sections include @sec-data that focuses on the dataset. This first includes @sec-ordata and @sec-cledata which mention aspects of the original and cleaned dataset. @sec-ordata also mentions measurement and limitations of the original dataset. @sec-res-dis, or the results/discussion, consists of @sec-hcar which deals with the most 'significant' data, showing overall trends for every racial group. @sec-SA_G and @sec-WAME_G were graphs that came from noticing trends in @sec-hcar, and focuses on ethnicity-related trends of South Asian and West Asian/Middle Eastern victims respectively. @sec-disc, the final section, shows the significance of the results that were found.
 
 # Data {#sec-data}
 
@@ -57,13 +57,11 @@ During data cleaning, it was found that reported hate crimes against black indiv
 
 # Results of Data {#sec-res-dis}
 
-## Results of @fig-hate-crimes-all-races {#sec-hcar}
-
-@fig-hate-crimes-all-races shows a large spike from 2020 onwards that has remained nearly consistent even in 2023. Black, South Asian, East/Southeast Asian, and White victims experienced the most significant increase post-pandemic. Furthermore, hate crimes against East/Southeast Asians dramatically increased in 2021. More recently, instances against West Asian/Middle Eastern and South Asian people increased in 2023 in particular. @fig-SA_graph (South Asian) and @fig-WAME_graph (West Asian/Middle Eastern) explore these trends in more detail. Ethnic analysis onto spikes of other groups was difficult because of limited ethnicity data from the original dataset.
+## Race-Based Hate Crimes {#sec-hcar}
 
 ```{r}
 #| label: fig-hate-crimes-all-races
-#| fig-cap: Hate Crimes Victims by Race and Year
+#| fig-cap: Racial Hate Crimes Victims by Race and Year (2018-2023)
 #| echo: false
 
 
@@ -74,14 +72,15 @@ analysis_data |>
   geom_bar()
   
 ```
+@fig-hate-crimes-all-races shows a large spike from 2020 onwards that has remained nearly consistent even in 2023. Black, South Asian, East/Southeast Asian, and White victims experienced the most significant increase post-pandemic. Black victims were also by far the most common victims for every year.
+Furthermore, hate crimes against East/Southeast Asians dramatically increased in 2021. More recently, instances against West Asian/Middle Eastern and South Asian people increased in 2023 in particular. @fig-SA_graph (South Asian) and @fig-WAME_graph (West Asian/Middle Eastern) explore these trends in more detail. Ethnic analysis onto spikes of other groups was difficult because of limited ethnicity data from the original dataset.
 
-## Results of @fig-SA_graph {#sec-SA_G}
+## South Asian Hate Crime Victims {#sec-SA_G}
 
-Hate crimes, specifically against Indians, appear to have significantly increased from 2020 onwards. The rise in "None" also indicates that victims were targeted based on simply being South Asian. Thus, the increase in 2023 is from increased occurrences against those assumed to be Indian or South Asian more generally.
 
 ```{r}
 #| label: fig-SA_graph
-#| fig-cap: South Asian Hate Crimes Victims by Ethnicity and Year
+#| fig-cap: South Asian Hate Crimes Victims by Ethnicity and Year (2018-2023)
 #| echo: false
 
 
@@ -97,13 +96,13 @@ analysis_data |>
 
 ```
 
-## Results of @fig-WAME_graph {#sec-WAME_G}
+@fig-SA_graph shows that hate crimes, specifically against Indians, appear to have significantly increased from 2020 onwards. The rise in "None" also indicates that victims were targeted based on simply being South Asian. Thus, the increase in 2023 is from increased occurrences against those assumed to be Indian or South Asian more generally.
 
-Most years had Israeli victims as the largest group, but 2023 saw a dramatic increase in hate crimes - especially against Israelis and Palestinians. There are also rarely instances of victims that are "None", indicating victims in this group are targeted more because of ethnicity.
+## West Asian/Middle Eastern Hate Crime Victims {#sec-WAME_G}
 
 ```{r}
 #| label: fig-WAME_graph
-#| fig-cap: West Asian/Middle Eastern Hate Crimes Victims by Ethnicity and Year
+#| fig-cap: West Asian/Middle Eastern Hate Crimes Victims by Ethnicity and Year (2018-2023)
 #| echo: false
 
 analysis_data |>
@@ -114,28 +113,27 @@ analysis_data |>
   scale_fill_viridis_d(option = "D", direction = -1)
 ```
 
-# Discussion{#sec-disc}
+Most years had Israeli victims as the largest group, but 2023 saw a dramatic increase in hate crimes - especially against Israelis and Palestinians. There are also rarely instances of victims that are "None", indicating victims in this group are targeted more because of ethnicity.
 
-## About @fig-hate-crimes-all-races
+# Discussion {#sec-disc}
 
-The graph shows hate crimes from 2020-2023 were roughly 2-3 times higher than they were in the previous years, which was correlated with the appearance of the COVID-19 pandemic. East and Southeast Asians experienced a significant increase from the pandemic, which has been mentioned in other analyses (@cbc2023asian_hate_crime).
+## Overall Racial Hate Crime Trends
+
+Hate crimes from 2020-2023 were roughly 2-3 times higher than they were in the previous years, which was correlated with the appearance of the COVID-19 pandemic. East and Southeast Asians experienced a significant increase from the pandemic, which has been mentioned in other analyses (@cbc2023asian_hate_crime).
 
 Some other factors of interest include black victims making up a plurality of victims for every single year since 2018. Black people in Toronto are disproportionately victims of reported racial hate crime - much more than any other group. It has been well-established that most face racial discrimination at least a few times a month (@social_capital_study) and that they are disproportionately targeted by Toronto police (@ohrc).
 
 As this data is reported by the Toronto Police Department, it is also possible that anti-black racism from the police spreads to reports of hate crimes as well. This could mean black individuals who are victims of hate crimes may have greater reluctance to report the crime to the police.
 
+## Rise in South Asian Hate Crime Victims
 
-
-## About @fig-SA_graph
-
-Hate crimes, specifically against Indians, appear to have significantly increased in 2020. This is possibly a result of the stresses from the pandemic. 
+Hate crimes, specifically against Indians, appear to have significantly increased in 2020. This is possibly a result of the stresses from the pandemic.
 
 The rise in "None" also indicates that victims were targeted based on simply being South Asian. Thus, the increase in 2023 is from increased occurrences against those assumed to be Indian or South Asian more generally. It must be noted that it is difficult to determine whether the increase in 2023 was because of increased hate or because of random statistical noise. More research should be done to explore this rise and potential causes.
 
 However, this recent rise in anti-South Asian hate is correlated to a substantial rise in racism online towards South Asians, including websites that are notorious for extremism such as 4chan (which fuel real life hate crimes). In fact, racist language against South Asians on the website has risen over twofold between January 2023 and 2024 (@SA_online_hate).
 
-
-## About @fig-WAME_graph
+## Rise in Middle Eastern/West Asian Hate Crime Victims
 
 Unlike @fig-SA_graph, the increase in hatred against West Asian/Middle Eastern groups is not because they are assumed to be West Asian or Middle Eastern more generally. Instead, it is because they are of a specific ethnicity that is part of this group.
 
@@ -145,13 +143,11 @@ It is also important to note that the rise in hate crimes against Israelis and P
 
 ## Overall Discussion Takeaways
 
-The results showed a substantial pivot from 2020 onwards, showing a large increase. The pandemic created an environment of uncertainty where ethnic and racial minorities often became a convenient scapegoat. The increase in ethnic & racial hatred from the pandemic has continued as far as 2023. 
+The results showed a substantial pivot from 2020 onwards, showing a large increase. The pandemic created an environment of uncertainty where ethnic and racial minorities often became a convenient scapegoat. The increase in ethnic & racial hatred from the pandemic has continued as far as 2023.
 
-It is also evident that Black Torontonians are the most likely victims by far. As hate crime data is managed by the police, anti-black bias may undermine the severity of these results. Additionally, there has been a recent rise of hate crimes against South Asians and Israelis/Palestinians. 
+It is also evident that Black Torontonians are the most likely victims by far. As hate crime data is managed by the police, anti-black bias may undermine the severity of these results. Additionally, there has been a recent rise of hate crimes against South Asians and Israelis/Palestinians.
 
 Not only can hate crimes pose physical harm to the victim, but can also cause lasting psychological trauma. Thus, the trends shown in the analysis highlight the urgent need to address surges in violence against these group and hate-related inequalities that exist.
-
-
 
 \newpage
 
